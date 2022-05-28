@@ -1,0 +1,95 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "basic-char-gen",
+    "description": "This will generate a basic D&D character.",
+    "version": "1.0"
+  },
+  "paths": {
+    "/character/create": {
+      "get": {
+        "operationId": "character-create",
+        "parameters": [
+          {
+            "name": "charName",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/charName"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {}
+        },
+        "responses": {
+          "200": {
+            "description": "Returns a created character",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/charSheet"
+                }
+              }
+            }
+          }
+        },
+        "servers": [
+          {
+            "url": "/bcg"
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "charName": {
+        "description": "Character name",
+        "default": "Gord",
+        "example": "Example",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 60
+      },
+      "charSheet": {
+        "description": "Basic character sheet",
+        "example": {
+          "strict": true,
+          "value": {
+            "Name": "Gord",
+            "Stats": [
+              15,
+              12,
+              14,
+              10,
+              10
+            ]
+          }
+        },
+        "type": "object",
+        "additionalProperties": true,
+        "required": [
+          "Name",
+          "Stats"
+        ],
+        "properties": {
+          "Name": {
+            "$ref": "#/components/schemas/charName"
+          },
+          "Stats": {
+            "type": "array",
+            "items": {
+              "default": 10,
+              "example": 10,
+              "type": "integer",
+              "format": "int",
+              "minimum": 3,
+              "maximum": 18
+            }
+          }
+        }
+      }
+    }
+  }
+}
