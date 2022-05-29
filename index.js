@@ -30,5 +30,6 @@ app.get('/character/create', (req, res) => {
 });
 
 //original example
-//app.listen(3000, () => console.log('Listening on port 3000'));
+
 app.set('port', process.env.PORT || 3000); //required by Heroku
+app.listen(process.env.PORT, () => console.log('Listening on port 3000'));
