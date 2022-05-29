@@ -25,6 +25,7 @@ app.get('/character/create', (req, res) => {
         charname: name,
         stats: [ str, dex, con, int, wis, chr ] 
     }
+    res.status(200);
     res.append('Content-Type', 'application/json');
     res.send(JSON.stringify(character)); 
 });
