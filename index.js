@@ -1,7 +1,34 @@
 function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
+    return Math.floor(Math.random() * max) + 1;
   }
-  
+
+function d4() {
+    getRandomInt(4);
+}
+
+function d6() {
+    getRandomInt(6);
+}
+
+function d8() {
+    getRandomInt(8);
+}
+
+function d10() {
+    getRandomInt(10);
+}
+
+function d12() {
+    getRandomInt(12);
+}
+
+function d20() {
+    getRandomInt(20);
+}
+
+function d100() {
+    getRandomInt(100);
+}
 
 const express = require('express');
 
@@ -13,12 +40,12 @@ app.get('/', (req, res) => {
     });
 
 app.get('/character/create', (req, res) => {
-    var str = getRandomInt(6)+getRandomInt(6)+getRandomInt(6)+3;
-    var dex = getRandomInt(6)+getRandomInt(6)+getRandomInt(6)+3;
-    var con = getRandomInt(6)+getRandomInt(6)+getRandomInt(6)+3;
-    var int = getRandomInt(6)+getRandomInt(6)+getRandomInt(6)+3;
-    var wis = getRandomInt(6)+getRandomInt(6)+getRandomInt(6)+3;
-    var chr = getRandomInt(6)+getRandomInt(6)+getRandomInt(6)+3;
+    var str = d6()+d6()+d6();
+    var dex = d6()+d6()+d6();
+    var con = d6()+d6()+d6();
+    var int = d6()+d6()+d6();
+    var wis = d6()+d6()+d6();
+    var chr = d6()+d6()+d6();
     var name = "Gord"
     
     var character = {
