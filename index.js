@@ -3,31 +3,31 @@ function getRandomInt(max) {
   }
 
 function d4() {
-    getRandomInt(4);
+    return getRandomInt(4);
 }
 
 function d6() {
-    getRandomInt(6);
+    return getRandomInt(6);
 }
 
 function d8() {
-    getRandomInt(8);
+    return getRandomInt(8);
 }
 
 function d10() {
-    getRandomInt(10);
+    return getRandomInt(10);
 }
 
 function d12() {
-    getRandomInt(12);
+    return getRandomInt(12);
 }
 
 function d20() {
-    getRandomInt(20);
+    return getRandomInt(20);
 }
 
 function d100() {
-    getRandomInt(100);
+    return getRandomInt(100);
 }
 
 const express = require('express');
