@@ -1,3 +1,5 @@
+const nm = require("./namemaker/namemaker.js");
+
 function getRandomInt(max) {
     return Math.floor(Math.random() * max) + 1;
   }
@@ -34,23 +36,6 @@ function d100() {
     return getRandomInt(100);
 }
 
-const mapBeg = new Map();
-const mapMid = new Map();
-const mapEnd = new Map();
-
-mapBeg.set( 1, "A");
-mapBeg.set( 2, "Fi");
-mapBeg.set( 3, "Tra");
-
-mapMid.set( 1, "gg");
-mapMid.set( 2, "ld");
-mapMid.set( 3, "wall");
-
-mapEnd.set( 1, "ah" );
-mapEnd.set( 2, "ox" );
-mapEnd.set( 3, "el" );
-
-
 const express = require('express');
 
 const app = express();
@@ -67,7 +52,7 @@ app.get('/character/create', (req, res) => {
     var int = d6()+d6()+d6();
     var wis = d6()+d6()+d6();
     var chr = d6()+d6()+d6();
-    var name = mapBeg.get(d3()) + mapMid.get(d3()) + mapEnd.get(d3())
+    var name = nm.mapBeg.get(d10()) + nm.mapMid.get(d10()) + nm.mapEnd.get(d10())
     
     var character = {
         charname: name,
@@ -81,4 +66,5 @@ app.get('/character/create', (req, res) => {
 //original example
 
 app.set('port', process.env.PORT || 3000); //required by Heroku
+console.log( process.env.PORT );
 app.listen(process.env.PORT, () => console.log("Listening for requests."));
