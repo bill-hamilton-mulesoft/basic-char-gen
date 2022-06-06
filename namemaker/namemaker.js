@@ -4,6 +4,7 @@ const mapEnd = new Map();
 
 mapBeg.set( 1, "A");
 mapBeg.set( 2, "Kor");
+mapBeg.set( 3, "Kal");
 mapBeg.set( 4, "Tra");
 mapBeg.set( 5, "Dra");
 mapBeg.set( 6, "Ja");
