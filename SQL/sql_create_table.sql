@@ -28,7 +28,7 @@ VALUES
 
 insert into classes (class_name, prime_requisite, hit_dice, max_level, armor, weapons, special_abilities) 
 VALUES
-('dwarf', 'constitution', 8, 12, 'Any; Shields Permitted', 'Any Small or Medium melee weapon; short bows and crossbows permited, but longbows forbidden', 'Fighter Maneuvers (Lance Attack and Set Spear vs. Charge maneuvers at 1st level');
+('dwarf', 'Constitution', 8, 12, 'Any; Shields Permitted', 'Any Small or Medium melee weapon; short bows and crossbows permited, but longbows forbidden', 'Fighter Maneuvers (Lance Attack and Set Spear vs. Charge maneuvers at 1st level');
 
 insert into classes (class_name, prime_requisite, hit_dice, max_level, armor, weapons, special_abilities) 
 VALUES
