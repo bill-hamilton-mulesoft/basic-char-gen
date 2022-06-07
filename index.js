@@ -73,8 +73,8 @@ app.get('/character/create', (req, res) => {
     
     // Build the return character JSON structure
     var character = {
-        charname: name,
-        stats: [ str, dex, con, int, wis, chr ] 
+        Name: name,
+        Stats: [ str, dex, con, int, wis, chr ] 
     }
 
     // Assuming everything is good, return the 200 all good status code
