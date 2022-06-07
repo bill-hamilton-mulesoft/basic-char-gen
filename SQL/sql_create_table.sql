@@ -10,9 +10,7 @@ CREATE TABLE classes (
     special_abilities varchar(1000)
 );
 
-insert into classes (class_name, prime_requisite, hit_dice, max_level, armor, weapons, special_abilities) 
-VALUES
-('fighter', 'Strength', 8, 36, 'Any; Shields Allowed', 'Any', 'Lance attack and set spear vs. charge maneuvers, figter combat options see chapter 8');
+insert into classes (class_name, prime_requisite, hit_dice, max_level, armor, weapons, special_abilities) VALUES ('fighter', 'Strength', 8, 36, 'Any; Shields Allowed', 'Any', 'Lance attack and set spear vs. charge maneuvers, figter combat options see chapter 8');
 
 insert into classes (class_name, prime_requisite, hit_dice, max_level, armor, weapons, special_abilities) 
 VALUES
@@ -30,10 +28,6 @@ insert into classes (class_name, prime_requisite, hit_dice, max_level, armor, we
 VALUES
 ('dwarf', 'Constitution', 8, 12, 'Any; Shields Permitted', 'Any Small or Medium melee weapon; short bows and crossbows permited, but longbows forbidden', 'Fighter Maneuvers (Lance Attack and Set Spear vs. Charge maneuvers at 1st level');
 
-insert into classes (class_name, prime_requisite, hit_dice, max_level, armor, weapons, special_abilities) 
-VALUES
-('elf', 'Strength, Intelligence', 6, 10, 'All; shields permitted.', 'Any', 'Fighter Maneuvers (Lance Attack, Set Spear vs. Charge; at 850,000 XP, Combat Options for Fighters); half damage from dragon breath at 1,600,000 XP; infravision; extra languages (elf, gnoll, hobgoblin, orc); 1 in 3 chance to detect secret and hidden doors; immunity to ghoul paralysis; magic spells.');
+insert into classes (class_name, prime_requisite, hit_dice, max_level, armor, weapons, special_abilities) VALUES ('elf', 'Strength, Intelligence', 6, 10, 'All; shields permitted.', 'Any', 'Fighter Maneuvers (Lance Attack, Set Spear vs. Charge; at 850,000 XP, Combat Options for Fighters); half damage from dragon breath at 1,600,000 XP; infravision; extra languages (elf, gnoll, hobgoblin, orc); 1 in 3 chance to detect secret and hidden doors; immunity to ghoul paralysis; magic spells.');
 
-insert into classes (class_name, prime_requisite, hit_dice, max_level, armor, weapons, special_abilities) 
-VALUES
-('halfling', 'Strength, Dexterity', 6, 8, 'Any; shield is permitted; armor must be designed specifically for halflings.', 'Any Small melee weapon; short bow; light crossbow.', 'Fighter Maneuver (Set Spear vs. Charge); at 900,000 XP, Fighter Combat Options); Combat Bonuses (- 2 AC vs. monsters larger than man-size, +1 to at- tack roll with missile weapons, + 1 to Indi- vidual Initiative); half damage from spells at 300,000 XP, half damage from dragon breath at 2,100,000 XP; 90% chance to hide mo- tionless in woodlands, 33% chance to hide motionless in dimly lit building interiors.');
+insert into classes (class_name, prime_requisite, hit_dice, max_level, armor, weapons, special_abilities) VALUES ('halfling', 'Strength, Dexterity', 6, 8, 'Any; shield is permitted; armor must be designed specifically for halflings.', 'Any Small melee weapon; short bow; light crossbow.', 'Fighter Maneuver (Set Spear vs. Charge); at 900,000 XP, Fighter Combat Options); Combat Bonuses (- 2 AC vs. monsters larger than man-size, +1 to at- tack roll with missile weapons, + 1 to Indi- vidual Initiative); half damage from spells at 300,000 XP, half damage from dragon breath at 2,100,000 XP; 90% chance to hide mo- tionless in woodlands, 33% chance to hide motionless in dimly lit building interiors.');
