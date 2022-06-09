@@ -100,7 +100,7 @@ app.get('/character/create', (req, res) => {
 app.get('/db', (req, res) => {
     //var allrows;
     //var i = 1;
-    client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res1) => {
+    client.query('SELECT * FROM classes;', (err, res1) => {
        if (err) throw err;
     //    for (let row of res1.rows) {
     //      //console.log(JSON.stringify(row));
@@ -111,7 +111,7 @@ app.get('/db', (req, res) => {
         res.append('Content-Type', 'application/json');
 
         var dbresponse = {
-            message: "Database Service not yet operational",
+            message: "Database Service is now operational",
             results: res1.rows         
         }
     // Return the JSON structure as a string
