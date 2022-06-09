@@ -98,33 +98,26 @@ app.get('/character/create', (req, res) => {
 // Return a simple Hello World
 //
 app.get('/db', (req, res) => {
-    var allrows;
+    //var allrows;
     //var i = 1;
-    //client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res1) => {
-    //    if (err) throw err;
+    client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res1) => {
+       if (err) throw err;
     //    for (let row of res1.rows) {
     //      //console.log(JSON.stringify(row));
     //      allrows.set(i,row);
     //     i++;
-    //    }});
-    client
-        .query('SELECT table_schema,table_name FROM information_schema.tables;')
-        .then(result => allrows = result)
-        .catch(e => console.error(e.stack))
-        
+        res.status(200);
+        // Tell the client what data format our return data is in
+        res.append('Content-Type', 'application/json');
 
-
-    res.status(200);
-    // Tell the client what data format our return data is in
-    res.append('Content-Type', 'application/json');
-
-    var dbresponse = {
-        message: "Database Service not yet operational",
-        results: allrows         
-    }
+        var dbresponse = {
+            message: "Database Service not yet operational",
+            results: res1.rows         
+        }
     // Return the JSON structure as a string
-    res.send(JSON.stringify(dbresponse));    
+    res.send(JSON.stringify(dbresponse));
     });
+});
 
 // Everything is set now so lets start up our app/service
 //
