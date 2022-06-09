@@ -98,16 +98,20 @@ app.get('/character/create', (req, res) => {
 // Return a simple Hello World
 //
 app.get('/db', (req, res) => {
-    var allrows = new Map();
-    var i = 1;
-    client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res1) => {
-        if (err) throw err;
-        for (let row of res1.rows) {
-          //console.log(JSON.stringify(row));
-          allrows.set(i,row);
-          i++;
-        }});
-
+    var allrows;
+    //var i = 1;
+    //client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res1) => {
+    //    if (err) throw err;
+    //    for (let row of res1.rows) {
+    //      //console.log(JSON.stringify(row));
+    //      allrows.set(i,row);
+    //     i++;
+    //    }});
+    client
+        .query('SELECT table_schema,table_name FROM information_schema.tables;')
+        .then(result => allrows = result)
+        .catch(e => console.error(e.stack))
+        
 
 
     res.status(200);
