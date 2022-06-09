@@ -1,6 +1,15 @@
 // namemaker is three maps that can be referenced for making names
 //
 const nm = require("./namemaker/namemaker.js");
+const { Client } = require('pg');
+const client = new Client({
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+      rejectUnauthorized: false
+    }
+  });
+
+client.connect();
 
 // Dice functions to create some random numbers that simulate RPG dice
 // TODO: Simplfy this
@@ -84,6 +93,29 @@ app.get('/character/create', (req, res) => {
     // Return the JSON structure as a string
     res.send(JSON.stringify(character)); 
 });
+
+// GET /
+// Return a simple Hello World
+//
+app.get('/db', (req, res) => {
+    client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res1) => {
+        if (err) throw err;
+        for (let row of res1.rows) {
+          console.log(JSON.stringify(row));
+        }});
+
+
+
+    res.status(200);
+    // Tell the client what data format our return data is in
+    res.append('Content-Type', 'application/json');
+
+    var dbresponse = {
+        message: "Database Service not yet operational",         
+    }
+    // Return the JSON structure as a string
+    res.send(JSON.stringify(dbresponse));    
+    });
 
 // Everything is set now so lets start up our app/service
 //
