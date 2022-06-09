@@ -4,9 +4,7 @@ const nm = require("./namemaker/namemaker.js");
 const { Client } = require('pg');
 const client = new Client({
     connectionString: process.env.DATABASE_URL,
-    ssl: {
-      rejectUnauthorized: false
-    }
+    //ssl: { rejectUnauthorized: false }
   });
 
 client.connect();
