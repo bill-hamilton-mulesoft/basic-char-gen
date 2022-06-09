@@ -9,7 +9,7 @@ mapBeg.set( 4, "Tra");
 mapBeg.set( 5, "Dra");
 mapBeg.set( 6, "Ja");
 mapBeg.set( 7, "Ol");
-mapBeg.set( 8, "Re");
+mapBeg.set( 8, "Gru");
 mapBeg.set( 9, "Stu");
 mapBeg.set( 10, "Zho");
 
