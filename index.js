@@ -98,10 +98,13 @@ app.get('/character/create', (req, res) => {
 // Return a simple Hello World
 //
 app.get('/db', (req, res) => {
+    var allrows = new Map();
+    var i = 1;
     client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res1) => {
         if (err) throw err;
         for (let row of res1.rows) {
-          console.log(JSON.stringify(row));
+          //console.log(JSON.stringify(row));
+          allrows.set(i,row);
         }});
 
 
@@ -111,7 +114,8 @@ app.get('/db', (req, res) => {
     res.append('Content-Type', 'application/json');
 
     var dbresponse = {
-        message: "Database Service not yet operational",         
+        message: "Database Service not yet operational",
+        results: allrows         
     }
     // Return the JSON structure as a string
     res.send(JSON.stringify(dbresponse));    
