@@ -105,6 +105,7 @@ app.get('/db', (req, res) => {
         for (let row of res1.rows) {
           //console.log(JSON.stringify(row));
           allrows.set(i,row);
+          i++;
         }});
 
 
