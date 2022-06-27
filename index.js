@@ -92,6 +92,45 @@ app.get('/character/create', (req, res) => {
     res.send(JSON.stringify(character)); 
 });
 
+// GET /character/create2
+// This returns the very basics of a Basic D&D Character
+// TODO: Flesh this out and finish it, lot of work to do here
+// This one returns a better structure
+//
+app.get('/character/create2', (req, res) => {
+    // Rolling the character attributes which are 3d6
+    var str = d6()+d6()+d6();
+    var dex = d6()+d6()+d6();
+    var con = d6()+d6()+d6();
+    var int = d6()+d6()+d6();
+    var wis = d6()+d6()+d6();
+    var chr = d6()+d6()+d6();
+
+    // Look up parts of the names with random dice rolls against the namemaker
+    // name tables
+    var name = nm.mapBeg.get(d10()) + nm.mapMid.get(d10()) + nm.mapEnd.get(d10())
+    
+    // Build the return character JSON structure
+    var character = {
+        Name: name,
+        Stats: [ 
+            { "Strength"    : str},
+            { "Dexterity"   : dex}, 
+            { "Constitution": con}, 
+            { "Intelligence": int}, 
+            { "Wisdoem"     : wis}, 
+            { "Chrasima"    : chr} 
+               ] 
+    }
+
+    // Assuming everything is good, return the 200 all good status code
+    res.status(200);
+    // Tell the client what data format our return data is in
+    res.append('Content-Type', 'application/json');
+    // Return the JSON structure as a string
+    res.send(JSON.stringify(character)); 
+});
+
 // GET /
 // Return a simple Hello World
 //
