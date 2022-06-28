@@ -118,7 +118,7 @@ app.get('/character/create2', (req, res) => {
             { "Dexterity"   : dex}, 
             { "Constitution": con}, 
             { "Intelligence": int}, 
-            { "Wisdoem"     : wis}, 
+            { "Wisdom"      : wis}, 
             { "Chrasima"    : chr} 
                ] 
     }
@@ -130,7 +130,7 @@ app.get('/character/create2', (req, res) => {
             { "Dexterity"   : dex}, 
             { "Constitution": con}, 
             { "Intelligence": int}, 
-            { "Wisdoem"     : wis}, 
+            { "Wisdom"      : wis}, 
             { "Chrasima"    : chr} 
                ],
         Class: goodClass 
