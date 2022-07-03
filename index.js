@@ -122,7 +122,13 @@ app.get('/character/create2', (req, res) => {
             { "Chrasima"    : chr} 
                ] 
     }
+    // Determine what class this character should be
     var goodClass = suggestClass(character);
+
+    // Look up the details about this class
+    var classDetails = getClassDetails( goodClass );
+
+    // Build the character return structure
     var goodCharacter = {
         Name: name,
         Stats: [ 
@@ -133,7 +139,8 @@ app.get('/character/create2', (req, res) => {
             { "Wisdom"      : wis}, 
             { "Chrasima"    : chr} 
                ],
-        Class: goodClass 
+        Class: goodClass,
+        ClassDetails: classDetails 
     }
 
     // Assuming everything is good, return the 200 all good status code
@@ -218,3 +225,13 @@ function suggestClass( pc ) {
     if (HalflingScore >= bestScore ) {finalClass = "halfling"; bestScore = HalflingScore }
     return finalClass;
 }
+
+function getClassDetails( className ) {
+    var classDetails;
+    // Define desired object
+    client.query('select * from classes where class_name = \'' + className + '\';'), (err, res1) => {
+        if (err) throw err;
+        classDetails = res1.rows;
+    }
+    return classDetails;
+  }
