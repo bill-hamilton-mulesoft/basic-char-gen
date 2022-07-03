@@ -231,8 +231,12 @@ function suggestClass( pc ) {
 function getClassDetails( className ) {
     //var classDetails;
     // Define desired object
+    var queryString = 'select * from classes where class_name = \'' + className + '\';';
+    console.log( 'Query String: ' + queryString);
+
     client.query('select * from classes where class_name = \'' + className + '\';'), (err, res1) => {
         if (err) throw err;
+        console.log( 'DB Response: ' + JSON.stringify(res1.rows));
         return res1.rows;
     }    
   }
