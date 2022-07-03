@@ -229,11 +229,10 @@ function suggestClass( pc ) {
 }
 
 function getClassDetails( className ) {
-    var classDetails;
+    //var classDetails;
     // Define desired object
     client.query('select * from classes where class_name = \'' + className + '\';'), (err, res1) => {
         if (err) throw err;
-        classDetails = res1.rows;
-    }
-    return classDetails;
+        return res1.rows;
+    }    
   }
