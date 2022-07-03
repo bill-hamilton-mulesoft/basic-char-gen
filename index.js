@@ -124,9 +124,10 @@ app.get('/character/create2', (req, res) => {
     }
     // Determine what class this character should be
     var goodClass = suggestClass(character);
+    console.log ( 'Class Determined to be:' + goodClass );
 
     // Look up the details about this class
-    var classDetails = getClassDetails( goodClass );
+    var theClassDetails = getClassDetails( goodClass );
 
     // Build the character return structure
     var goodCharacter = {
@@ -140,7 +141,7 @@ app.get('/character/create2', (req, res) => {
             { "Chrasima"    : chr} 
                ],
         Class: goodClass,
-        ClassDetails: classDetails 
+        ClassDetails: theClassDetails 
     }
 
     // Assuming everything is good, return the 200 all good status code
