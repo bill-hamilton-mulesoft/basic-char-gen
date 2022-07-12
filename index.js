@@ -127,7 +127,8 @@ app.get('/character/create2', (req, res) => {
     console.log ( 'Class Determined to be:' + goodClass );
 
     // Look up the details about this class
-    var theClassDetails = getClassDetails( goodClass );
+    var theClassDetails;
+    theClassDetails = getClassDetails( goodClass );
     console.log ( goodClass + ' details: ' + JSON.stringify(theClassDetails));
 
     // Build the character return structure
