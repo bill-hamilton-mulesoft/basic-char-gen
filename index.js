@@ -129,7 +129,7 @@ app.get('/character/create2', (req, res) => {
     // Look up the details about this class
     var theClassDetails;
     theClassDetails = getClassDetails( goodClass );
-    console.log ( goodClass + ' details: ' + JSON.stringify(theClassDetails));
+    console.log ( goodClass + ' details: ' + theClassDetails);
 
     // Build the character return structure
     var goodCharacter = {
@@ -239,6 +239,6 @@ function getClassDetails( className ) {
     client.query( queryString, (err, res1) => {
         if (err) throw err;
         console.log( 'DB Response: ' + JSON.stringify(res1.rows));
-        return res1.rows;
+        return JSON.stringify(res1.rows);
     });    
   }
