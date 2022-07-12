@@ -128,8 +128,8 @@ app.get('/character/create2', (req, res) => {
 
     // Look up the details about this class
     var theClassDetails;
-    theClassDetails = JSON.parse(getClassDetails( goodClass ));
-    console.log ( goodClass + ' details: ' + theClassDetails);
+    theClassDetails = getClassDetails( goodClass ));
+    console.log ( goodClass + ' details: ' + JSON.stringify(theClassDetails));
 
     // Build the character return structure
     var goodCharacter = {
