@@ -192,11 +192,17 @@ app.get('/db/getClassDetails/:className', (req, res) => {
     // });
     var queryString = 'select * from classes where class_name = \'' + req.params.className + '\';';
     console.log( 'Query String: ' + queryString);
+    client.query(queryString, (err, res1) => {
+        if (err) throw err;         
+         var dbresponse = {
+             message: "Database Service is now operational",
+             results: res1.rows         
+         }
 
-    var dbresponse = {
-        message: "Database Service is in construction",
-        results: queryString         
-    }
+    // var dbresponse = {
+    //     message: "Database Service is in construction",
+    //     results: queryString         
+    // }
     // Assuming everything is good, return the 200 all good status code
     res.status(200);
     // Tell the client what data format our return data is in
