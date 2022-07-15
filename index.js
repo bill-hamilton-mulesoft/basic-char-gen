@@ -190,7 +190,7 @@ app.get('/db/getClassDetails/:className', (req, res) => {
     // // Return the JSON structure as a string
     // res.send(JSON.stringify(dbresponse));
     // });
-    var queryString = 'select * from classes where class_name = \'' + className + '\';';
+    var queryString = 'select * from classes where class_name = \'' + req.params.className + '\';';
     console.log( 'Query String: ' + queryString);
 
     var dbresponse = {
