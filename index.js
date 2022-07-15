@@ -190,9 +190,12 @@ app.get('/db/getClassDetails/:className', (req, res) => {
     // // Return the JSON structure as a string
     // res.send(JSON.stringify(dbresponse));
     // });
+    var queryString = 'select * from classes where class_name = \'' + className + '\';';
+    console.log( 'Query String: ' + queryString);
+
     var dbresponse = {
         message: "Database Service is in construction",
-        results: req.params.className         
+        results: queryString         
     }
     // Assuming everything is good, return the 200 all good status code
     res.status(200);
