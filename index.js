@@ -209,6 +209,7 @@ app.get('/db/getClassDetails/:className', (req, res) => {
     res.append('Content-Type', 'application/json');
     // Return the JSON structure as a string
     res.send(JSON.stringify(dbresponse));    
+    });
 });
 
 // Everything is set now so lets start up our app/service
