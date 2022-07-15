@@ -127,9 +127,9 @@ app.get('/character/create2', (req, res) => {
     console.log ( 'Class Determined to be:' + goodClass );
 
     // Look up the details about this class
-    var theClassDetails;
-    theClassDetails = getClassDetails( goodClass ));
-    console.log ( goodClass + ' details: ' + JSON.stringify(theClassDetails));
+    // var theClassDetails;
+    // theClassDetails = getClassDetails( goodClass ));
+    // console.log ( goodClass + ' details: ' + JSON.stringify(theClassDetails));
 
     // Build the character return structure
     var goodCharacter = {
@@ -142,8 +142,7 @@ app.get('/character/create2', (req, res) => {
             { "Wisdom"      : wis}, 
             { "Chrasima"    : chr} 
                ],
-        Class: goodClass,
-        ClassDetails: theClassDetails 
+        Class: goodClass, 
     }
 
     // Assuming everything is good, return the 200 all good status code
@@ -173,6 +172,34 @@ app.get('/db', (req, res) => {
     // Return the JSON structure as a string
     res.send(JSON.stringify(dbresponse));
     });
+});
+
+app.get('/db/getClassDetails/:className', (req, res) => {
+    //var allrows;
+    //var i = 1;
+    // client.query('SELECT * FROM classes;', (err, res1) => {
+    //    if (err) throw err;
+    //     res.status(200);
+    //     // Tell the client what data format our return data is in
+    //     res.append('Content-Type', 'application/json');
+
+    //     var dbresponse = {
+    //         message: "Database Service is now operational",
+    //         results: res1.rows         
+    //     }
+    // // Return the JSON structure as a string
+    // res.send(JSON.stringify(dbresponse));
+    // });
+    var dbresponse = {
+        message: "Database Service is in construction",
+        results: req.params.className         
+    }
+    // Assuming everything is good, return the 200 all good status code
+    res.status(200);
+    // Tell the client what data format our return data is in
+    res.append('Content-Type', 'application/json');
+    // Return the JSON structure as a string
+    res.send(JSON.stringify(dbresponse));    
 });
 
 // Everything is set now so lets start up our app/service
