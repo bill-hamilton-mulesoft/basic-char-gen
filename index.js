@@ -77,7 +77,7 @@ app.get('/character/create', (req, res) => {
     // Look up parts of the names with random dice rolls against the namemaker
     // name tables
     var name = nm.mapBeg.get(d10()) + nm.mapMid.get(d10()) + nm.mapEnd.get(d10())
-    
+    console.log( '/character/create called, generated character ' + name );
     // Build the return character JSON structure
     var character = {
         Name: name,
@@ -109,6 +109,7 @@ app.get('/character/create2', (req, res) => {
     // Look up parts of the names with random dice rolls against the namemaker
     // name tables
     var name = nm.mapBeg.get(d10()) + nm.mapMid.get(d10()) + nm.mapEnd.get(d10())
+    console.log( '/character/create2 called, generated character ' + name );
     
     // Build the return character JSON structure
     var character = {
@@ -159,6 +160,7 @@ app.get('/character/create2', (req, res) => {
 app.get('/db', (req, res) => {
     //var allrows;
     //var i = 1;
+    console.log( '/db called'); 
     client.query('SELECT * FROM classes;', (err, res1) => {
        if (err) throw err;
         res.status(200);
@@ -190,8 +192,9 @@ app.get('/db/getClassDetails/:className', (req, res) => {
     // // Return the JSON structure as a string
     // res.send(JSON.stringify(dbresponse));
     // });
+    console.log( '/db/getClassDetails called for ' + req.params.className );
     var queryString = 'select * from classes where class_name = \'' + req.params.className + '\';';
-    console.log( 'Query String: ' + queryString);
+    //console.log( 'Query String: ' + queryString);
     client.query(queryString, (err, res1) => {
         if (err) throw err;         
          var dbresponse = {
@@ -217,7 +220,8 @@ app.get('/db/getClassDetails/:className', (req, res) => {
 // Heroku is going to hand us a port variable to use for the port
 app.set('port', process.env.PORT || 3000); //required by Heroku
 // Lets log this port
-console.log( process.env.PORT );
+//console.log( process.env.PORT );
+console.log( "Starting Service");
 // This is the final call that doesn't return
 // It starts up the REST Service
 app.listen(process.env.PORT, () => console.log("Listening for requests."));
