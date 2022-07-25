@@ -76,7 +76,7 @@ app.get('/character/create', (req, res) => {
 
     // Look up parts of the names with random dice rolls against the namemaker
     // name tables
-    var name = nm.mapBeg.get(d10()) + nm.mapMid.get(d10()) + nm.mapEnd.get(d10())
+    var name = nm.mapBeg.get(d100()) + nm.mapMid.get(d100()) + nm.mapEnd.get(d100())
     console.log( '/character/create called, generated character ' + name );
     // Build the return character JSON structure
     var character = {
