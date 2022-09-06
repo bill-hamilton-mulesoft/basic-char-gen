@@ -58,7 +58,7 @@ const app = express();
 // Return a simple Hello World
 //
 app.get('/', (req, res) => {
-    res.send('Hello World');
+    res.send('Would you like to create a character?');
     });
 
 // GET /character/create
