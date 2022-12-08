@@ -11,7 +11,7 @@ client.connect();
 
 // Dice functions to create some random numbers that simulate RPG dice
 // TODO: Simplfy this
-// Comment2
+// 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max) + 1;
   }
