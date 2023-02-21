@@ -84,6 +84,7 @@ app.get('/character/create', (req, res) => {
         Stats: [ str, dex, con, int, wis, chr ] 
     }
 
+    
     // Assuming everything is good, return the 200 all good status code
     res.status(200);
     // Tell the client what data format our return data is in
@@ -92,6 +93,32 @@ app.get('/character/create', (req, res) => {
     res.send(JSON.stringify(character)); 
 });
 
+app.get('/transaction/history', (req, res) => {
+    // Rolling the character attributes which are 3d6
+    var str = (d6()+d6()+d6())*10;
+    var dex = (d6()+d6()+d6())*10;
+    var con = (d6()+d6()+d6())*10;
+    var int = (d6()+d6()+d6())*8;
+    var wis = (d6()+d6()+d6())*11;
+    var chr = (d6()+d6()+d6())*9;
+
+    // Look up parts of the names with random dice rolls against the namemaker
+    // name tables
+    //var name = nm.mapBeg.get(d100()) + nm.mapMid.get(d100()) + nm.mapEnd.get(d100())
+    var name = "1011XJ456" + nm.mapEnd.get(d100())
+    console.log( '/transaction/history called, generated response ' + name );
+    // Build the return character JSON structure
+    var character = {
+        Account: name,
+        LastSixTransactions: [ str, dex, con, int, wis, chr ] 
+    }
+// Assuming everything is good, return the 200 all good status code
+res.status(200);
+// Tell the client what data format our return data is in
+res.append('Content-Type', 'application/json');
+// Return the JSON structure as a string
+res.send(JSON.stringify(character)); 
+});
 // GET /character/create2
 // This returns the very basics of a Basic D&D Character
 // TODO: Flesh this out and finish it, lot of work to do here
