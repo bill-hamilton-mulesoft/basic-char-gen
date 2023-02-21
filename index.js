@@ -95,17 +95,17 @@ app.get('/character/create', (req, res) => {
 
 app.get('/transaction/history', (req, res) => {
     // Rolling the character attributes which are 3d6
-    var str = (d6()+d6()+d6())*10;
-    var dex = (d6()+d6()+d6())*10;
-    var con = (d6()+d6()+d6())*10;
-    var int = (d6()+d6()+d6())*8;
-    var wis = (d6()+d6()+d6())*11;
-    var chr = (d6()+d6()+d6())*9;
+    var str = (d6()+d6()+d6())*10.12;
+    var dex = (d6()+d6()+d6())*10.09;
+    var con = (d6()+d6()+d6())*3.98;
+    var int = (d6()+d6()+d6())*8.65;
+    var wis = (d6()+d6()+d6())*11.1;
+    var chr = (d6()+d6()+d6())*9.76;
 
     // Look up parts of the names with random dice rolls against the namemaker
     // name tables
     //var name = nm.mapBeg.get(d100()) + nm.mapMid.get(d100()) + nm.mapEnd.get(d100())
-    var name = "1011XJ456" + nm.mapEnd.get(d100())
+    var name = "1011" + nm.mapBeg.get(d100()) + "496" + nm.mapEnd.get(d100())
     console.log( '/transaction/history called, generated response ' + name );
     // Build the return character JSON structure
     var character = {
