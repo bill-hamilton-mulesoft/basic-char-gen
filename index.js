@@ -118,6 +118,8 @@ res.append('Content-Type', 'application/json');
 // Return the JSON structure as a string
 res.send(JSON.stringify(character)); 
 });
+
+
 // GET /character/create2
 // This returns the very basics of a Basic D&D Character
 // TODO: Flesh this out and finish it, lot of work to do here
