@@ -95,12 +95,12 @@ app.get('/character/create', (req, res) => {
 
 app.get('/transaction/history', (req, res) => {
     // Creating last six transactions
-    var str = (d6()+d6()+d6())*10.12;
-    var dex = (d6()+d6()+d6())*10.09;
-    var con = (d6()+d6()+d6())*3.98;
-    var int = (d6()+d6()+d6())*8.65;
-    var wis = (d6()+d6()+d6())*11.1;
-    var chr = (d6()+d6()+d6())*9.76;
+    var str = ((d6()+d6()+d6())*10.12).toFixed(2);
+    var dex = ((d6()+d6()+d6())*10.09).toFixed(2);
+    var con = ((d6()+d6()+d6())*3.98).toFixed(2);
+    var int = ((d6()+d6()+d6())*8.65).toFixed(2);
+    var wis = ((d6()+d6()+d6())*11.1).toFixed(2);
+    var chr = ((d6()+d6()+d6())*9.76).toFixed(2);
 
     
     //Make up an account name
