@@ -94,7 +94,7 @@ app.get('/character/create', (req, res) => {
 });
 
 app.get('/transaction/history', (req, res) => {
-    // Rolling the character attributes which are 3d6
+    // Creating last six transactions
     var str = (d6()+d6()+d6())*10.12;
     var dex = (d6()+d6()+d6())*10.09;
     var con = (d6()+d6()+d6())*3.98;
@@ -102,9 +102,8 @@ app.get('/transaction/history', (req, res) => {
     var wis = (d6()+d6()+d6())*11.1;
     var chr = (d6()+d6()+d6())*9.76;
 
-    // Look up parts of the names with random dice rolls against the namemaker
-    // name tables
-    //var name = nm.mapBeg.get(d100()) + nm.mapMid.get(d100()) + nm.mapEnd.get(d100())
+    
+    //Make up an account name
     var name = "1011" + nm.mapBeg.get(d100()) + "496" + nm.mapEnd.get(d100())
     console.log( '/transaction/history called, generated response ' + name );
     // Build the return character JSON structure
